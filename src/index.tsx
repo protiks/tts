@@ -8,11 +8,11 @@ require('dotenv').config()
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
-  );
-  const httpLink = createHttpLink({
-    uri: 'https://api.github.com/graphql'
-  })
-  const authLink = setContext((_, { headers }) => {
+);
+const httpLink = createHttpLink({
+  uri: 'https://api.github.com/graphql'
+})
+const authLink = setContext((_, { headers }) => {
   let token = process.env.REACT_APP_API_KEY
   return {
     headers: {
@@ -30,9 +30,9 @@ const client = new ApolloClient({
 root.render(
   <React.StrictMode>
     <ApolloProvider client={client}>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
     </ApolloProvider>
   </React.StrictMode>
 );
