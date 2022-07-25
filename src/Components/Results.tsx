@@ -25,7 +25,6 @@ const Results = ({ names: results }: any): JSX.Element => {
     return (
         <>
             <Container>
-
                 <Box sx={{ display: 'grid', gridTemplateColumns: `repeat(${columns}, 1fr)` }}>
                     {results.map((result: any) => {
                         if (localStorage.getItem(result.id) === result.id) {
@@ -33,17 +32,19 @@ const Results = ({ names: results }: any): JSX.Element => {
                             // setTransparent(true)
                         }
                         return (
-                            <Box sx={{ boxShadow: 5 }}>
-                                <Kard
-                                    key={result.id}
-                                    id={result.id}
-                                    name={result.name}
-                                    singleStarGazer={result.singleStarGazer}
-                                    singleStarGazerName={result.singleStarGazerName}
-                                    starGazerCount={result.starGazerCount}
-                                    singleStarGazerAvatar={result.singleStarGazerAvatar}
-                                />
-                            </Box>
+                            <div key={result.id}>
+                                <Box sx={{ boxShadow: 5 }}>
+                                    <Kard
+                                        key={result.id}
+                                        id={result.id}
+                                        name={result.name}
+                                        singleStarGazer={result.singleStarGazer}
+                                        singleStarGazerName={result.singleStarGazerName}
+                                        starGazerCount={result.starGazerCount}
+                                        singleStarGazerAvatar={result.singleStarGazerAvatar}
+                                    />
+                                </Box>
+                            </div>
                         )
                     })}
                 </Box>
